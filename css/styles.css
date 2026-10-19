@@ -1,0 +1,64 @@
+:root {
+  color-scheme: light;
+  --ink: #183247;
+  --ink-soft: #496173;
+  --muted: #738493;
+  --paper: #fbfcfa;
+  --surface: #ffffff;
+  --line: #e3e9e8;
+  --blue: #246b92;
+  --blue-deep: #102b3f;
+  --green: #a9d66a;
+  --green-deep: #2f7459;
+  --orange: #f1a35b;
+  --violet: #7773a8;
+  --font-body: "DM Sans", sans-serif;
+  --font-display: "Manrope", sans-serif;
+  --nav-height: 72px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 16px); }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--font-body); font-size: 16px; line-height: 1.65; }
+h1, h2, h3, h4, .navbar-brand { font-family: var(--font-display); letter-spacing: 0; }
+a { color: inherit; }
+button, input, select { font: inherit; }
+.skip-link { position: fixed; z-index: 2000; top: 8px; left: 8px; padding: 10px 16px; color: white; background: var(--blue-deep); transform: translateY(-150%); }
+.skip-link:focus { transform: translateY(0); }
+.site-nav { min-height: var(--nav-height); background: rgba(251, 252, 250, .96); border-bottom: 1px solid rgba(24, 50, 71, .08); backdrop-filter: blur(14px); }
+.brand-mark { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); font-size: 17px; font-weight: 800; text-decoration: none; }
+.brand-mark > span:not(.brand-icon) { margin-left: -7px; color: var(--blue); }
+.brand-icon { display: inline-grid; width: 32px; height: 32px; place-items: center; color: var(--blue-deep); background: var(--green); border-radius: 9px; }
+.site-nav .nav-link { padding: 10px 13px !important; color: var(--ink-soft); font-size: 14px; font-weight: 600; }
+.site-nav .nav-link:hover, .site-nav .nav-link.active { color: var(--blue); }
+.navbar-toggler { border-color: var(--line); }
+.theme-toggle { display: inline-grid; width: 40px; height: 40px; place-items: center; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 50%; }
+.theme-toggle:hover { background: #edf3f2; }
+.btn-accent { display: inline-flex; min-height: 48px; align-items: center; gap: 12px; padding: 0 20px; color: var(--blue-deep); background: var(--green); border: 0; border-radius: 3px; font-weight: 700; transition: background .2s, transform .2s; }
+.btn-accent:hover, .btn-accent:focus-visible { color: var(--blue-deep); background: #bce47d; transform: translateY(-2px); }
+.eyebrow { margin: 0 0 16px; color: #c6e78f; font-size: 11px; font-weight: 700; letter-spacing: 1.1px; }
+.eyebrow-dark { color: var(--blue); }
+.eyebrow-dot { display: inline-block; width: 7px; height: 7px; margin-right: 8px; background: var(--green); border-radius: 50%; vertical-align: 1px; }
+.section-pad { padding: 108px 0; }
+.site-footer { padding: 32px 0; background: #102b3f; color: rgba(255,255,255,.72); }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.footer-inner .brand-mark { color: white; }
+.footer-inner .brand-mark > span:not(.brand-icon) { color: #c6e78f; }
+.footer-inner p, .footer-inner > span { margin: 0; font-size: 12px; }
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+body.theme-dark { color-scheme: dark; --ink: #edf3f2; --ink-soft: #c2d0d7; --muted: #9bacb5; --paper: #142a38; --surface: #1b3545; --line: #35505e; }
+body.theme-dark .site-nav { background: rgba(20, 42, 56, .96); border-color: var(--line); }
+body.theme-dark .navbar-toggler-icon { filter: invert(1); }
+body.theme-dark .theme-toggle:hover { background: #264454; }
+body.theme-dark .site-footer { background: #0c202d; }
+:focus-visible { outline: 3px solid #e2a857; outline-offset: 3px; }
+@media (max-width: 767.98px) {
+  :root { --nav-height: 64px; }
+  .section-pad { padding: 76px 0; }
+  .footer-inner { align-items: flex-start; flex-direction: column; gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}
